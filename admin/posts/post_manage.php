@@ -9,18 +9,17 @@
         <div id="content-here" class="container-fluid" style="background: var(--bs-body-bg);margin-bottom: 40px;">
             <div id="HeaderTxt" style="margin: 20px;">
                 <h3 class="fs-2 fw-bold text-primary mb-5">
-                    <strong>Post Management </strong>
+                    <strong>Post Management</strong>
                 </h3>
             </div>
 
             <!-- content -->
-            <nav class="">
-                <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                    <button class="nav-link active " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-                        View post</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                        Profile</button>
-                    
+            <nav class="mb-5">
+                <div class="nav nav-pills justify-content-center " id="nav-tab" role="tablist">
+                    <button class="nav-link active text-capitalize  " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                        View posts</button>
+                    <button class="nav-link text-capitalize " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        add post </button>   
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
