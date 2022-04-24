@@ -28,7 +28,7 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade px-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <?php include 'add post.php'?>
                 </div>
   
@@ -39,9 +39,21 @@
         
 
         </div>
-<?php include '../!_control/footer.html'; ?>
+        <?php include '../!_control/footer.html'; ?>
         
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    
+
+    <div class="border rounded d-flex flex- scroll-to-top">
+        <a class="border rounded d-block scroll-to-top" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <a class="border rounded d-block scroll-to-top" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+    </div>
+    
 </section>
 
 
