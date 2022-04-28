@@ -8,6 +8,8 @@ $dbname = "bloger";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
+/* ini_set('memory_limit', '-1'); */
+
 // Check connection
 if (!$conn) {
   die("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">

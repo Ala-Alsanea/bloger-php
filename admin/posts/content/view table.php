@@ -22,12 +22,20 @@
 
     if(isset($_GET['update']))
     {
-        echo $_GET['id'] ;
+        $id = $_GET['id'] ;
+        $selectQuery=" SELECT * FROM `posts` WHERE id = $id ";
+        $result=mysqli_query($conn,$selectQuery);
+        $post = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_free_result($result);
+
+        var_dump($post);
+
+
     }
 
     else{
 
-
+        
     
     
 
@@ -43,7 +51,7 @@
     <table class="table  table-hover text-dark">
         <thead>
             <tr>
-                <th class="text-uppercase ">ID</th>
+                <th class="text-uppercase visually-hidden">ID</th>
                 <th class="text-uppercase ">TITLE</th>
                 <th class="text-uppercase text-center ">IMAGE</th>
                 <th class="text-uppercase ">PARAGRAPH</th>
@@ -60,17 +68,17 @@
                 {
                     
           ?>
-            <form method="get" action="">
+            <form method="get" action="" class="m-4">
               <tr>
                   <!-- #########(id)########### -->
-                    <td class="text-break text-capitalize hidden">
-                        <input type="text" name="id" disabled readonly 
-                        class="form-control-hidden"  
+                    <td class="text-break text-capitalize visually-hidden">
+                        <input type="text" name="id" readonly 
+                        class="form-control-plaintext"  
                         value="<?php echo trim($post['id']) ; ?>"> 
                     </td>
                     
                   <!-- #########(title)########### -->
-                    <td class="text-break text-capitalize" >   
+                    <td class="text-break text-capitalize " >   
                         <?php echo substr($post['title'],0,10)." ..."; ?>
                     </td>
                   
@@ -85,14 +93,14 @@
 
                   <!-- #########(paragraph)########### -->
                     <td class="text-break text-capitalize text-start">
-                        <p class="text-break" style="max-width: 170px;">
+                        <p class="text-break" >
                             <?php echo substr($post['paragraph'],0,10)." ..."; ?>
                         </p>
                     </td>
 
                   <!-- #########(category)########### -->
                     <td class="text-capitalize">
-                        <?php echo $post['category_name']; ?>
+                        <?php echo substr($post['category_name'],0,10)." ..."; ?>
                     </td>
 
                   <!-- #########( DATE)########### -->
@@ -101,7 +109,7 @@
                     </td>
                   
                     <!-- #########( btns )########### -->
-                    <td class="text-capitalize text-center">
+                    <td class="text-capitalize text-center py-4">
                         <div class="btn-group" role="group">
                             <button class="btn btn-primary" type="submit" name="update">Update</button>
                             <button class="btn btn-danger" type="submit" name="delete">Delete</button>
@@ -117,7 +125,7 @@
 
         <tfoot>
             <tr>
-                <th class="text-uppercase ">ID</th>
+                <th class="text-uppercase visually-hidden">ID</th>
                 <th class="text-uppercase ">TITLE</th>
                 <th class="text-uppercase text-center ">IMAGE</th>
                 <th class="text-uppercase ">PARAGRAPH</th>
