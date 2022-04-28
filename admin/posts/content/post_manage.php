@@ -43,7 +43,7 @@
         </div>
 
         <div class="">
-            <?php include '../!_control/footer.html'; ?>
+            <?php include '../_shared_files/footer.html'; ?>
         </div>
         
     </div>
