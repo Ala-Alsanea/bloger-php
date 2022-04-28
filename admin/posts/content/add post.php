@@ -8,7 +8,9 @@
 
 <div class="container mt-4 text-primary">
     <form  method="post" action="post.php" class="text-center text-dark border rounded border-2 bg-light">
-        <h3 class="text-capitalize fs-3 fw-bold text-center text-primary mb-1" style="margin: 12px;">add post</h3>
+        <h3 class="text-capitalize fs-3 fw-bold text-center text-primary mb-1" style="margin: 12px;">
+          add post  
+        </h3>
         
         <!-- title filed -->
         <div class=" px-5 mx-5 ">

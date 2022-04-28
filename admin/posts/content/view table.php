@@ -5,22 +5,41 @@
 
 
 <?php 
-    $text="FdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssFdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-    include "../!_control/DB-config.php" ;  
-    $selectQuery="SELECT * FROM `posts`";
+    // include DB config file
+    include "../!_control/DB-config.php" ; 
+
+    // sql query
+    $selectQuery=" SELECT * FROM `posts` ORDER BY created_date DESC ";
+    // do query and get results
+
     $result=mysqli_query($conn,$selectQuery);
-    // $row[]=mysqli_fetch_assoc($result);
-    var_dump(mysqli_fetch_assoc($result));
+    // convert result to associative array
+
+    $posts = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    // delete results from memory
+    mysqli_free_result($result);
+    // var_dump($posts);
 
     if(isset($_GET['update']))
     {
-        echo $_GET['img'] ;
+        echo $_GET['id'] ;
     }
 
+    else{
+
+
+    
+    
 
 ?>
 
+
+
+
 <div class="table-responsive">
+    <?php if(count($posts) > 0)
+            {
+                 ?>
     <table class="table  table-hover text-dark">
         <thead>
             <tr>
@@ -36,48 +55,49 @@
 
         <tbody>
           <?php 
-            if(true )
-            {
-                while($row = mysqli_fetch_assoc($result))
+            
+                foreach($posts as $post)
                 {
+                    
           ?>
             <form method="get" action="">
               <tr>
                   <!-- #########(id)########### -->
-                    <td class="text-break text-capitalize ">
-                    <input type="text" name="img" readonly class="form-control-plaintext"  value="<?php echo $row['id'] ; ?>   "> 
+                    <td class="text-break text-capitalize hidden">
+                        <input type="text" name="id" disabled readonly 
+                        class="form-control-hidden"  
+                        value="<?php echo trim($post['id']) ; ?>"> 
                     </td>
                     
                   <!-- #########(title)########### -->
-                    <td class="text-break text-capitalize" >
-                        
-                    <?php echo substr($row['title'],0,10)." ..."; ?>
+                    <td class="text-break text-capitalize" >   
+                        <?php echo substr($post['title'],0,10)." ..."; ?>
                     </td>
                   
                     <!-- #########(img)########### -->
                     <td class="text-capitalize text-center">
                         <picture >
-                       
-                            <img class="rounded img-fluid img-thumbnail" src="data:image/*;charset=utf8;base64,<?php echo base64_encode($row['img']); ?>" width="100px" alt="pic" loading="auto" />
+                            <img class="rounded img-fluid img-thumbnail" 
+                            src="data:image/*;charset=utf8;base64,<?php echo base64_encode($post['img']); ?>"
+                             width="100px" alt="No Image" loading="auto" />
                         </picture>
                     </td>
 
                   <!-- #########(paragraph)########### -->
                     <td class="text-break text-capitalize text-start">
                         <p class="text-break" style="max-width: 170px;">
-                            <?php echo substr($row['paragraph'],0,10)." ..."; ?>
+                            <?php echo substr($post['paragraph'],0,10)." ..."; ?>
                         </p>
                     </td>
 
                   <!-- #########(category)########### -->
                     <td class="text-capitalize">
-                    <?php echo $row['category_id']; ?>
-
+                        <?php echo $post['category_name']; ?>
                     </td>
 
                   <!-- #########( DATE)########### -->
                     <td class="text-break text-capitalize">
-                        <?php echo date("d-m-Y", strtotime($row['created_date']) ) ; ?>
+                        <?php echo date("d-m-Y", strtotime($post['created_date']) ) ; ?>
                     </td>
                   
                     <!-- #########( btns )########### -->
@@ -92,7 +112,7 @@
             </form>
           <?php 
                 } 
-                    } ?>
+                     ?>
         </tbody>
 
         <tfoot>
@@ -107,6 +127,22 @@
             </tr>
         </tfoot>
     </table>
+
+    <?php 
+            }
+
+        else 
+            {
+                echo "<div class=\"alert alert-secondary text-center text-lg alert-dismissible\" role=\"alert\">
+                     <strong class=\" text-block \">No posts found</strong> 
+                     
+                </div>";
+            }
+        
+    
+    ?>
 </div>
 
-<?php mysqli_close($conn) ?>
+<?php 
+    }
+mysqli_close($conn) ?>

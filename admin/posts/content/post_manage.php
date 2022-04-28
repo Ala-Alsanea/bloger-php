@@ -42,7 +42,9 @@
             </div>
         </div>
 
-        <?php include '../!_control/footer.html'; ?>
+        <div class="">
+            <?php include '../!_control/footer.html'; ?>
+        </div>
         
     </div>
     

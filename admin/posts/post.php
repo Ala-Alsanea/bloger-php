@@ -1,6 +1,6 @@
 
 
-<?php require_once '../!_control/head.html'; ?>
+<?php include_once '../!_control/head.html'; ?>
 
 <body id="page-top" class="text-capitalize d-flex">
 
