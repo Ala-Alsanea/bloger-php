@@ -6,7 +6,7 @@
 
 <?php 
     // include DB config file
-    include "../!_control/DB-config.php" ; 
+    include "../_shared_files/DB-config.php" ; 
 
     // sql query
     $selectQuery=" SELECT * FROM `posts` ORDER BY created_date DESC ";
