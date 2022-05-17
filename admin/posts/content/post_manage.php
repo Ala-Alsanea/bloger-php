@@ -22,6 +22,7 @@
                 <div class="nav nav-pills justify-content-evenly btn-group px-5" id="nav-tab" role="tablist">
                     <button class="nav-link btn btn-lg btn-graduate-primary  text-capitalize border border-primary border-2 active" id="View-posts-tab" data-bs-toggle="tab" data-bs-target="#View-posts" type="button" role="tab" aria-controls="View-posts" aria-selected="true">
                         View posts</button>
+                        
                     <button class="nav-link btn btn-lg btn-graduate-primary text-capitalize border border-primary border-2  " id="add-post-tab" data-bs-toggle="tab" data-bs-target="#add-post" type="button" role="tab" aria-controls="add-post" aria-selected="false">
                         add post </button>   
                 </div>
