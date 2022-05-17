@@ -1,5 +1,5 @@
 
-
+ 
 <?php include_once '../_shared_files/head.html'; ?>
 
 <body id="page-top" class="text-capitalize d-flex">
