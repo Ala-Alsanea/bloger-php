@@ -6,18 +6,22 @@
 
 <?php 
     // include DB config file
-    require "../_shared_files/DB-config.php" ; 
+    include "../_shared_files/DB-config.php" ; 
 
     // sql query
     $selectQuery=" SELECT * FROM `posts` ORDER BY created_date DESC ";
+
     // do query and get results
 
     $result=mysqli_query($conn,$selectQuery);
+
     // convert result to associative array
 
     $posts = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
     // delete results from memory
     mysqli_free_result($result);
+
     // var_dump($posts);
 
     if(isset($_GET['update']))
@@ -33,6 +37,12 @@
 
     }
 
+    elseif(isset($_GET['delete']))
+    {   
+    header("refresh:0; location:");
+
+    }
+
     else{
 
         
@@ -40,9 +50,6 @@
     
 
 ?>
-
-
-
 
 <div class="table-responsive">
     <?php if(count($posts) > 0)
@@ -66,6 +73,8 @@
             
                 foreach($posts as $post)
                 {
+                
+                
                     
           ?>
             <form method="get" action="" class="m-4">
@@ -86,7 +95,7 @@
                     <td class="text-capitalize text-center">
                         <picture >
                             <img class="rounded img-fluid img-thumbnail" 
-                            src="data:image/*;charset=utf8;base64,<?php echo base64_encode($post['img']); ?>"
+                            src="<?php echo $post['img_name']; ?>"
                              width="100px" alt="No Image" loading="auto" />
                         </picture>
                     </td>
@@ -100,7 +109,24 @@
 
                   <!-- #########(category)########### -->
                     <td class="text-capitalize">
-                        <?php echo substr($post['category_name'],0,10)." ..."; ?>
+                        <?php
+
+                            if($post['id_category']==-1)
+                            {
+                                echo "no category" ;
+                            }
+                            else
+                            {
+                                $tagSelectQuery = "SELECT * FROM `categories` where id = $post[id_category]";
+                                $result = mysqli_query($conn, $tagSelectQuery);
+                                $tag = mysqli_fetch_assoc($result);
+                                mysqli_free_result($result);
+    
+                                // var_dump($tag);
+                                echo $tag['category_name']; 
+
+                            }
+                        ?>
                     </td>
 
                   <!-- #########( DATE)########### -->

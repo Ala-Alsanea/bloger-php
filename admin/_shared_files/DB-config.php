@@ -8,7 +8,6 @@ $dbname = "bloger";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
-/* ini_set('memory_limit', '-1'); */
 
 // Check connection
 if (!$conn) {
@@ -24,5 +23,8 @@ if (!$conn) {
 // <span>
 // <strong>Alert</strong> Connected successfully</span>
 // </div>"; 
+
+
+
 
 ?>
