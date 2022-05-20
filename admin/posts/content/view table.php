@@ -37,11 +37,7 @@
 
     }
 
-    elseif(isset($_GET['delete']))
-    {   
-    header("refresh:0; location:");
-
-    }
+    
 
     else{
 
@@ -138,7 +134,7 @@
                     <td class="text-capitalize text-center py-4">
                         <div class="btn-group" role="group">
                             <button class="btn btn-primary" type="submit" name="update">Update</button>
-                            <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+                            <a class="btn btn-danger" href='javascript: delUser(<?php echo $post["id"] ?>)'> Delete </a>
                         </div>
                     </td> 
 
@@ -176,6 +172,19 @@
     
     ?>
 </div>
+
+
+<script>
+    function delUser(id)
+    {
+        if(confirm('Are you sure you want to delete this post !!!?'))
+        {
+            window.location.href ='content/CRUD/delete.php?id='+id;
+        }
+    }
+
+
+</script>
 
 <?php 
     }

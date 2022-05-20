@@ -19,6 +19,8 @@ error_reporting(E_ALL);
 <?php include 'content/post_manage.php'; ?>
 
 
+
+
 <?php include '../_shared_files/script.html';?>
 
 </body>
