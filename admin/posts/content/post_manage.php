@@ -1,5 +1,5 @@
 <section id="wrapper" class="flex-fill">
-    <div id="content-wrapper" class="d-flex flex-column" style="background: var(--bs-body-bg);">
+    <div id="content-wrapper" class="d-flex flex-column justify-content-between " style="background: var(--bs-body-bg);">
         
     <!-- username -->
         <div class="container text-center py-3   " >
