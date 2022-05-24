@@ -91,7 +91,7 @@
                     <td class="text-capitalize text-center">
                         <picture >
                             <img class="rounded img-fluid img-thumbnail" 
-                            src="<?php echo $post['img_name']; ?>"
+                            src="<?php echo '../../_utilities/img/'.basename($post['img_name']); ?>"
                              width="100px" alt="No Image" loading="auto" />
                         </picture>
                     </td>

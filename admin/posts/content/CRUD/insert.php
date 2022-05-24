@@ -34,14 +34,18 @@ if(isset($_POST['post_btn']))
   // var_dump($img_name);
   // var_dump($img_tmp);
 
-  if(move_uploaded_file($img_tmp,'../../uploaded_img/'.$img_name))
+  if(move_uploaded_file($img_tmp,'../../../../_utilities/img/'.$img_name))
   {
       echo "Success img";
   }
 
   else
   {
-    $img_dir= '../../_utilities/img/pic_temp.png';
+    $img_dir= 'pic_temp.png';
+    
+   
+
+    // var_dump(file_get_contents($img_dir));
     // die('cant move img');
   }
 
