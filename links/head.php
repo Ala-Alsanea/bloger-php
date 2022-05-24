@@ -8,8 +8,10 @@
   <link rel="icon" href="_utilities/img/icon.png" type="icon">
   <link rel="stylesheet" href="_utilities/css/animate.min.css">
   <link rel="stylesheet" href="_utilities/fonts/fontawesome-all.min.css">
-  <link rel="stylesheet" href="_utilities/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="_utilities/bootstrap/css/bootstrap.css"> 
+  <link rel="stylesheet" href="_utilities/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="_utilities/css/bootstrap_studio.css">
+
 
 
 </head>

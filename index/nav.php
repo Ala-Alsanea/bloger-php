@@ -1,6 +1,6 @@
 <div class="pb-4 ">
 
-  <nav id="mainNav" class="navbar navbar-dark bg-primary navbar-expand-md fixed-top py-3 mx-5 mt-2 rounded rounded-pill" onscroll="">
+  <nav id="mainNav" class="navbar navbar-dark bg-primary navbar-expand-md fixed-top py-1 mx-5 mt-1 rounded rounded-pill" onscroll="">
     
     <div class="container  d-flex flex-column align-align-items">
       <a class="navbar-brand d-flex align-items-center " href="#">
