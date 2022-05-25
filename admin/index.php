@@ -73,7 +73,7 @@
        }
        else
        {
-       $pass=mysqli_real_escape_string($con,trim($_POST[pass]));
+       $pass=mysqli_real_escape_string($con,trim($_POST['pass']));
     }
      if (empty($errors))
      {
