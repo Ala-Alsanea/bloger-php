@@ -2,15 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blogger</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css">
-    <link rel="stylesheet" href="assets/css/styles.css?">
-</head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../_utilities/img/icon.png" type="icon">
+    <link rel="stylesheet" href="../_utilities/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../_utilities/css/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+    <link rel="stylesheet" href="../_utilities/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../_utilities/bootstrap/css/bootstrap.min.css">
 
+    <!-- <link rel="stylesheet" href="../../_utilities/css/style.css"> -->
+    <title>Bloger</title>
+</head>
 <body>
     <!-- Start: Login Form Basic -->
     <section class="position-relative py-4 py-xl-5">
@@ -38,7 +42,7 @@
                     </div>
                 </div>
             </div>
-kkkkkkkkkkk
+
         </div>
     </section><!-- End: Login Form Basic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -51,19 +55,19 @@ kkkkkkkkkkk
    }
    else
    {
-       $con=mysql_connect('localhost','root','','classicmodels')or die('Can\'t connect to mysql server');
+       $con=mysqli_connect('localhost','root','','classicmodels')or die('Can\'t connect to mysql server');
        $errors=array();
        $name='';
        $pass='';
-       if (empty($_POST[name]))
+       if (empty($_POST['name']))
        {
            $errors[]='You Forget to enter your name please try again.';
        }
        else
        {
-       $name=mysqli_real_escape_string($con,trim($_POST[name]));
+       $name=mysqli_real_escape_string($con,trim($_POST['name']));
     }
-    if (empty($_POST[pass]))
+    if (empty($_POST['pass']))
        {
            $errors[]='You Forget to enter your password please try again.';
        }
