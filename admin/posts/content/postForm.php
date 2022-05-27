@@ -22,8 +22,8 @@ function postForm($action="",$title = "" , $paragraph ="",$tags=[])
           <!-- title filed -->
           <div class="m-3">
 
-            <input class="form-control text-dark  " type="text" name="title" placeholder="Add Title" required minlength="3" maxlength="100" autofocus 
-            value="<?php echo $title?>" />
+            <input class="form-control text-dark  " type="text" name="title" placeholder="Add Title" required minlength="3" maxlength="99" autofocus 
+            value="<?= htmlspecialchars($title)?>" />
         </div>
         
         <!-- img filed -->
@@ -33,7 +33,7 @@ function postForm($action="",$title = "" , $paragraph ="",$tags=[])
         
         <!-- Paragraph filed -->
         <article class="m-3">
-          <textarea class="form-control text-dark" name="paragraph" placeholder="Add Paragraph" minlength="3" maxlength="500" required value="<?php echo $paragraph?>"></textarea>
+          <textarea class="form-control text-dark" name="paragraph" placeholder="Add Paragraph" minlength="3" maxlength="499" required value="<?= htmlspecialchars($paragraph)?>"></textarea>
          
         </article>
         
@@ -46,8 +46,8 @@ function postForm($action="",$title = "" , $paragraph ="",$tags=[])
                 
                 <?php foreach ($tags as $tag)
                         { ?>
-                    <option value="<?php echo $tag['id']?>">
-                      <?php echo $tag['category_name']?>
+                    <option value="<?= $tag['id']?>">
+                      <?= $tag['category_name']?>
                     </option>
                 <?php } ?>
 
