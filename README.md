@@ -3,8 +3,23 @@
 
 ****
 - ### todo list :
-	- [x] post insert
-	- [x] post delete
-	- [x] post view
-	- [ ] post update
-	- [ ] secure dir
+	- admin dashboard
+		- ala task
+			- [x] post insert
+			- [x] post delete
+			- [x] post view
+			- [] post update
+			- [] secure dir
+
+		- mai task
+			- [] login
+			- [] category view
+			- [] category delete
+			- [] category insert
+
+			 
+
+
+	- public
+		- [x] index page
+		- [x] read page
