@@ -2,10 +2,7 @@
     <div id="content-wrapper" class="d-flex flex-column justify-content-between ">
 
         <!-- username -->
-        <div class="container text-center py-3   ">
-            <h1 class="text-success">welcome username</h1>
-            <div class="border-bottom border-5  m-4 mx-5"></div>
-        </div>
+        <?php include '../_shared_files/username_echo.php'?>
 
         <!-- page label  -->
         <div id="content-here" class="container-fluid" style=" margin-bottom: 40px;">
