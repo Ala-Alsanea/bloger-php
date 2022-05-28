@@ -1,6 +1,7 @@
 <?php include "../../../_shared_files/DB-config.php";
       include "../../../_shared_files/head.html";
       // var_dump($_FILES);
+      ini_set('memory_limit', '1024M');
 ?>
 
 
@@ -17,8 +18,10 @@ if(isset($_POST['post_btn']))
   $title= trim(mysqli_real_escape_string($conn,$_POST['title']));
   $title = htmlspecialchars($title);
   
+
   $paragraph = trim(mysqli_real_escape_string($conn,$_POST['paragraph']));
   $paragraph = htmlspecialchars($paragraph);
+
   
   $tag_id = trim(mysqli_real_escape_string($conn,$_POST['tag_id']));
   $tag_id = htmlspecialchars($tag_id);
@@ -30,7 +33,6 @@ if(isset($_POST['post_btn']))
   $img_tmp = trim($_FILES['img']['tmp_name']);
 
   
-  $img_dir='uploaded_img/'.$img_name;
   // var_dump($img_name);
   // var_dump($img_tmp);
 
@@ -41,7 +43,7 @@ if(isset($_POST['post_btn']))
 
   else
   {
-    $img_dir= 'pic_temp.png';
+    $img_name= 'pic_temp.png';
     
    
 
@@ -49,14 +51,15 @@ if(isset($_POST['post_btn']))
     // die('cant move img');
   }
 
-  $insertQuery ="INSERT INTO `posts`(`title`, `img_name`, `paragraph`,  `id_category`) VALUES ('$title','$img_dir','$paragraph',$tag_id)";
+  $insertQuery ="INSERT INTO `posts`(`title`, `img_name`, `paragraph`,  `id_category`) VALUES ('$title','$img_name','$paragraph',$tag_id)";
 
   $result=mysqli_query($conn,$insertQuery);
 
   if($result)
   {
     echo "success" ;
-    header("refresh:0; url=../../post.php");
+    header("location:../../");
+
   }
   else 
   {
@@ -67,8 +70,7 @@ if(isset($_POST['post_btn']))
 
 else
 {
-  header("refresh:0; url=../../post.php");
-
+      header("location: ../../../error.php");
 }
 
 

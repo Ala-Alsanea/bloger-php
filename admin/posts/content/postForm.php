@@ -28,7 +28,7 @@ function postForm($action="",$title = "" , $paragraph ="",$tags=[])
         
         <!-- img filed -->
         <div class="px-5 mx-5 " >
-          <input class=" text-dark form-control " type="file" name="img" accept="image/*"  />
+          <input class=" text-dark form-control " type="file" name="img" accept="image/*" size="50mb" />
         </div>
         
         <!-- Paragraph filed -->
