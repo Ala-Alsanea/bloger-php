@@ -10,11 +10,13 @@ $re = mysqli_query($conn,"DELETE FROM `posts` WHERE id = $id");
 if($re)
   {
     // echo "post delete successfully" ;
-    header("refresh:0; url=../../post.php");
+    header("location:../../");
   }
   else 
   {
-     echo mysqli_error($conn).'<br><br>'.$insertQuery ;
+    //  echo mysqli_error($conn).'<br><br>'.$insertQuery ;
+     header("location:../../../error.php");
+
   }
 
 
