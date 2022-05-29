@@ -8,15 +8,15 @@
 			- [x] post insert
 			- [x] post delete
 			- [x] post view
-			- [] post update
-			- [] secure dir
+			- [ ] post update
+			- [ ] secure dir
 
 		- mai task
 			- [x] login
 			- [ ] logout
-			- [] category view
-			- [] category delete
-			- [] category insert
+			- [ ] category view
+			- [ ] category delete
+			- [ ] category insert
 
 	****
 
