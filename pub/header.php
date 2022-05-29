@@ -11,10 +11,10 @@ $re = mysqli_query($conn, $selectQuery);
 $postNum = mysqli_num_rows($re);
 $posts = mysqli_fetch_assoc($re);
 $catRe = mysqli_query($conn, "SELECT * FROM `categories` WHERE `id`= $posts[id_category]");
-$cat = mysqli_fetch_assoc($catRe);
 // var_dump($postNum );  
 // echo basename($posts['img_name']);
 if ($postNum > 0) {
+  $cat = mysqli_fetch_assoc($catRe);
 
 ?>
 
@@ -127,6 +127,8 @@ if ($postNum > 0) {
 
 <?php
 }
+
+
 
 mysqli_free_result($re);
 mysqli_close($conn);

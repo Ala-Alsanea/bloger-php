@@ -1,28 +1,77 @@
-<!DOCTYPE html>
+<?php
+if (isset($_COOKIE['user'])) {
+    header('location: Secure.php');
+}
+include '_shared_files/DB-config.php';
+
+$Uname = $pass = '';
+$errors = array();
+// echo $_SERVER['PHP_SELF'] ;
+
+if (isset($_POST['submit'])) {
+    // Check if username is empty
+    if (empty(trim($_POST['Uname']))) {
+        $errors[] = 'Please enter username.';
+    } else {
+        $Uname = mysqli_real_escape_string($conn, $_POST['Uname']);
+    }
+    // Check if password is empty
+    if (empty(trim($_POST['pass']))) {
+        $errors[] = 'Please enter your password.';
+    }
+    else {
+        $pass = sha1($_POST["pass"]);
+    }
+    if (empty($errors)) {
+        $query = "SELECT UserName , Password  FROM `users` WHERE `UserName`= '$Uname' AND `Password` = '$pass' ";
+        $result = mysqli_query($conn, $query) or die('There is an error');
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $count = mysqli_num_rows($result);
+        if ($count > 0) {
+            setcookie('user', $Uname, time() + 86400, '/');
+            header('location: Secure.php');
+        } 
+        else {
+            $errors['both'] = "Your Username or Password is invalid";
+        }
+    }
+     
+        foreach ($errors as $msg) {
+            echo "<p class=' mx-5 my-2 text-danger'>$msg</p>";
+       
+    }
+// var_dump($errors);
+}
+?>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../_utilities/img/icon.png" type="icon">
-    <link rel="stylesheet" href="../_utilities/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../_utilities/css/animate.min.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
-    <link rel="stylesheet" href="../_utilities/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../_utilities/bootstrap/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blogger</title>
+    <link rel="stylesheet" href="../_utilities/bootstrap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css">
+    <link rel="stylesheet" href="assets/css/styles.css?">
+</head> -->
 
-    <!-- <link rel="stylesheet" href="../../_utilities/css/style.css"> -->
-    <title>Bloger</title>
-</head>
+
+
+<?php
+include '_shared_files/head.html';
+?>
+
 <body>
     <!-- Start: Login Form Basic -->
     <section class="position-relative py-4 py-xl-5">
-        <div class="container bg-primary" style="">
+        <div class="container bg-primary">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="text-center" style="color: var(--bs-white);"><i class="fas fa-blog fs-4 text-start text-primary bg-white border rounded-circle"></i>&nbsp;Blogger</h2>
-                    <p class="w-lg-50" style="background: var(--bs-white);"><br>&nbsp;Today a reader, tomorrow a leader.<br>Welcome to our Blogger .Login and Enjoy your time.<br><br></p>
+                    <h2 class="text-center" style="color: var(--bs-white);"><i class="fas fa-blog fs-4 text-start text-primary bg-white border rounded-circle"></i>&nbsp;Blogger
+                    </h2>
+                    <p class="w-lg-50" style="background: var(--bs-white);"><br>&nbsp;Today a reader, tomorrow a
+                        leader.<br>Welcome to our Blogger .Login and Enjoy your time.<br><br></p>
                 </div>
             </div>
 
@@ -31,94 +80,31 @@
                     <div class="card mb-5">
                         <div class="card-body d-flex flex-column align-items-center">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z">
+                                    </path>
                                 </svg></div>
-                            <form class="text-center" method="post">
-                                <div class="mb-3"><input class="form-control" type="text" name="email" placeholder="Username"></div>
-                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                                <label for="Uname" class="form-label">User Name:</label>
+                                <div class="input-group">
+                                    <input name="Uname" type="text" id="Uname" class="form-control"" />
+                                </div>
+
+                                <label for=" pass" class="mt-2 form-label">Password:</label>
+                                    <div class="input-group">
+                                        <input name="pass" type="password" id="pass" class="form-control" value="" />
+                                    </div>
+                                    <div class="mt-4 mb-2 shadow text-center">
+                                        <button type="submit" name="submit" value="submit" class="btn btn-primary w-100">Login</button>
+                                    </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section><!-- End: Login Form Basic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <?php
-	
-   if (!isset($_POST['submit']))
-   {
-       printForm();
-   }
-   else
-   {
-       $con=mysqli_connect('localhost','root','','classicmodels')or die('Can\'t connect to mysql server');
-       $errors=array();
-       $name='';
-       $pass='';
-       if (empty($_POST['name']))
-       {
-           $errors[]='You Forget to enter your name please try again.';
-       }
-       else
-       {
-       $name=mysqli_real_escape_string($con,trim($_POST['name']));
-    }
-    if (empty($_POST['pass']))
-       {
-           $errors[]='You Forget to enter your password please try again.';
-       }
-       else
-       {
-       $pass=mysqli_real_escape_string($con,trim($_POST['pass']));
-    }
-     if (empty($errors))
-     {
-         $query ="INSERT INTO login(name,password)VALUES('$name','$pass',NOW())";
-         $r=@mysqli_query($con,$query);
-         if($r)
-         {
-             echo'<h1>Thank you ! Your login done sucessfuly</h1>';
-         }
-         else 
-         {
-           echo'<h1>Yoy could not login due to a system error.</h1>' ;
-           echo '<p>'.mysqli_error($con).'<br/><br/>Query:'.$query.'</p>';
-     }
-     if($name=='adm'&&$pass=='123456')
-        {
-            setcookie('login',$name,time()+86400,'/');
-            header('Location:../Secure.php');
-        }
-        else 
-        {
-            echo 'Username or password is not correct!<br>';
-            echo '<a herf="logincookies.php">Try Again</a>';
-        }
-     mysqli_close($con);
-     exit();
-   }
-   else
-   {
-       echo '<h1>Error!</h1>
-       <p class="error">The following errors occuerd:<br/>';
-       foreach($errors as $msg)
-       {
-           echo "- $msg<br/>\n";
-       }
-       echo '</p> <p> please try again.</p><p><br/></p>';
-       printForm($name,$pass);
-   }
-   mysqli_close($con);
-   }
-   function printForm($name="",$pass="")
-{
-?>
-<?php
-}
-?>
 </body>
+
 </html>

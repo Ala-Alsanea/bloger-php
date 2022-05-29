@@ -8,7 +8,7 @@
           <i class="fas fa-blog text-primary" style="transform: rotate(-10deg);"></i>
         </span>
 
-        <span class="h2">Bloger</span>
+        <span class="h2">Blogger</span>
       </a>
 
       <!-- <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1">

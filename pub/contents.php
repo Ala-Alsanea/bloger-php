@@ -41,7 +41,7 @@ if ($postNum > 0) {
                                 <img class="rounded img-fluid shadow-lg w-100 fit-cover" src="_utilities/img/<?php echo basename($posts['img_name']) ?>" style="height: 250px;" />
                                 <div class="py-4">
                                     <span class="badge bg-dark mb-2 ">
-                                    <i class="fas fa-tag mx-1 my-1"></i>
+                                        <i class="fas fa-tag mx-1 my-1"></i>
                                         <?php
                                         if ($cat != null)
                                             echo $cat['category_name'];
@@ -73,6 +73,10 @@ if ($postNum > 0) {
 
 
 <?php
+} 
+else 
+{
+    include 'pub/noPost.php';    
 }
 
 mysqli_free_result($re);

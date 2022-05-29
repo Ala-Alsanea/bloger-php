@@ -79,19 +79,19 @@
                     <td class="text-break text-capitalize visually-hidden">
                         <input type="text" name="id" readonly 
                         class="form-control-plaintext"  
-                        value="<?php echo trim($post['id']) ; ?>"> 
+                        value="<?= trim($post['id']) ; ?>"> 
                     </td>
                     
                   <!-- #########(title)########### -->
                     <td class="text-break text-capitalize " >   
-                        <?php echo substr($post['title'],0,10)." ..."; ?>
+                        <?= substr($post['title'],0,10)." ..."; ?>
                     </td>
                   
                     <!-- #########(img)########### -->
                     <td class="text-capitalize text-center">
                         <picture >
                             <img class="rounded img-fluid img-thumbnail" 
-                            src="<?php echo '../../_utilities/img/'.basename($post['img_name']); ?>"
+                            src="<?= '../../_utilities/img/'.basename($post['img_name']); ?>"
                              width="100px" alt="No Image" loading="auto" />
                         </picture>
                     </td>
@@ -99,7 +99,7 @@
                   <!-- #########(paragraph)########### -->
                     <td class="text-break text-capitalize text-start">
                         <p class="text-break" >
-                            <?php echo substr($post['paragraph'],0,10)." ..."; ?>
+                            <?= substr($post['paragraph'],0,10)." ..."; ?>
                         </p>
                     </td>
 
@@ -127,14 +127,14 @@
 
                   <!-- #########( DATE)########### -->
                     <td class="text-break text-capitalize">
-                        <?php echo date("d-m-Y", strtotime($post['created_date']) ) ; ?>
+                        <?= date("d-m-Y", strtotime($post['created_date']) ) ; ?>
                     </td>
                   
                     <!-- #########( btns )########### -->
                     <td class="text-capitalize text-center py-4">
                         <div class="btn-group" role="group">
-                            <button class="btn btn-primary" type="submit" name="update">Update</button>
-                            <a class="btn btn-danger" href='javascript: delUser(<?php echo $post["id"] ?>)'> Delete </a>
+                        <!-- <a class="btn btn-primary" href=''> update </a> -->
+                            <a class="btn btn-danger" href='javascript: delUser(<?= $post["id"] ?>)'> Delete </a>
                         </div>
                     </td> 
 
