@@ -12,7 +12,8 @@
 			- [] secure dir
 
 		- mai task
-			- [] login
+			- [x] login
+			- [ ] logout
 			- [] category view
 			- [] category delete
 			- [] category insert
