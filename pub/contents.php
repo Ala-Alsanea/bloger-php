@@ -76,7 +76,7 @@ if ($postNum > 0) {
 } 
 else 
 {
-    include 'pub/noPost.php   ';    
+    include 'pub/noPost.php';    
 }
 
 mysqli_free_result($re);

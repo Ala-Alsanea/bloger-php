@@ -128,10 +128,7 @@ if ($postNum > 0) {
 <?php
 }
 
-else
-{
 
-}
 
 mysqli_free_result($re);
 mysqli_close($conn);
