@@ -2,8 +2,13 @@
 if (!isset($_COOKIE['user'])) {
     header('Location: index.php');
 }
+else
+{
+    header('Location: posts/');
+
+}
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,4 +22,4 @@ if (!isset($_COOKIE['user'])) {
     Do you want to exit?, click <a href="Logout.php">here</a>
 </body>
 
-</html>
+</html> -->
