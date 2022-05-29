@@ -9,21 +9,21 @@
     include "../_shared_files/DB-config.php" ; 
 
     // sql query
-    $selectQuery="  ";
+    $selectQuery=" SELECT * FROM `categories` ORDER BY `id`  DESC ";
 
     // do query and get results
 
-    // $result=mysqli_query($conn,$selectQuery);
+    $result=mysqli_query($conn,$selectQuery);
 
    
     // convert result to associative array
 
-    // $cats = mysqli_fetch_all($result,MYSQLI_ASSOC);
+     $cats = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
     // delete results from memory
-    // mysqli_free_result($result);
+    mysqli_free_result($result);
 
-    // var_dump($posts);
+    //  var_dump($cats);
 
     
 
@@ -47,7 +47,7 @@
         <thead>
             <tr>
                 <th class="text-uppercase visually-hidden">ID</th>
-                <th class="text-uppercase ">TITLE</th>
+                <th class="text-uppercase ">Category Name</th>
                 <th class="text-uppercase  text-primary text-center ">control</th>
             </tr>
         </thead>
@@ -55,8 +55,10 @@
         <tbody>
           <?php 
             
+               foreach($cats as $cat){
+
                
-                
+      
                     
           ?>
             <form method="get" action="" class="m-4">
@@ -65,12 +67,12 @@
                     <td class="text-break text-capitalize visually-hidden">
                         <input type="text" name="id" readonly 
                         class="form-control-plaintext"  
-                        <!-- value="<?= trim($post['id']) ; ?>">  -->
+                        value="<?= trim($cat['id']) ; ?>"> 
                     </td>
                     
                   <!-- #########(title)########### -->
                     <td class="text-break text-capitalize " >   
-                        <!-- <?= substr($post['title'],0,10)." ..."; ?> -->
+                        <?= $cat['category_name']; ?>
                     </td>
                   
                   
@@ -78,19 +80,20 @@
                     <td class="text-capitalize text-center py-4">
                         <div class="btn-group" role="group">
                         <!-- <a class="btn btn-primary" href=''> update </a> -->
-                            <!-- <a class="btn btn-danger" href='javascript: delUser(<?= $post["id"] ?>)'> Delete </a> -->
+                            <a class="btn btn-danger" href='javascript: delUser(<?= $cat["id"] ?>)'> Delete </a>
                         </div>
                     </td> 
 
               </tr>
             </form>
-          <?php  ?>
+          <?php  }
+          ?>
         </tbody>
 
         <tfoot>
             <tr>
                 <th class="text-uppercase visually-hidden">ID</th>
-                <th class="text-uppercase ">TITLE</th>
+                <th class="text-uppercase ">Category Name</th>
                 <th class="text-uppercase  text-primary text-center ">control</th>
             </tr>
         </tfoot>
@@ -116,7 +119,7 @@
 <script>
     function delUser(id)
     {
-        if(confirm('Are you sure you want to delete this post !!!?'))
+        if(confirm('This category is releated to the post! If you delete this category it will be delete the post!!?'))
         {
             window.location.href ='content/delete_category.php?id='+id;
         }
