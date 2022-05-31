@@ -13,9 +13,9 @@
 
 		- mai task
 			- [x] login
-			- [] category view
-			- [] category delete
-			- [] category insert
+			- [x] category view
+			- [x] category delete
+			- [x] category insert
 
 	****
 
