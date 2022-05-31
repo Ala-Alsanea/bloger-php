@@ -2,7 +2,7 @@
     <div id="content-wrapper" class="d-flex flex-column justify-content-between ">
 
         <!-- username -->
-        <?php include '../_shared_files/username_echo.php'?>
+        <?php include '../_shared_files/username_echo.php' ?>
 
         <!-- page label  -->
         <div id="content-here" class="container-fluid" style=" margin-bottom: 40px;">
@@ -38,11 +38,13 @@
                 </div>
 
             </div>
+
+
+            <div class="">
+                <?php include '../_shared_files/footer.php'; ?>
+            </div>
         </div>
 
-        <div class="">
-            <?php include '../_shared_files/footer.php'; ?>
-        </div>
 
     </div>
 

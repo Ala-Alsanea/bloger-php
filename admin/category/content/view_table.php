@@ -40,14 +40,14 @@
 <div class="table-responsive">
     <?php
     
-    // if(count($cats) > 0)
-    //         {
+    if(count($cats) > 0)
+            {
                  ?>
     <table class="table  table-hover text-dark">
         <thead>
             <tr>
                 <th class="text-uppercase visually-hidden">ID</th>
-                <th class="text-uppercase ">Category Name</th>
+                <th class="text-uppercase text-center">Category Name</th>
                 <th class="text-uppercase  text-primary text-center ">control</th>
             </tr>
         </thead>
@@ -71,7 +71,7 @@
                     </td>
                     
                   <!-- #########(title)########### -->
-                    <td class="text-break text-capitalize " >   
+                    <td class="text-break text-capitalize text-center fs-4" >   
                         <?= $cat['category_name']; ?>
                     </td>
                   
@@ -93,7 +93,7 @@
         <tfoot>
             <tr>
                 <th class="text-uppercase visually-hidden">ID</th>
-                <th class="text-uppercase ">Category Name</th>
+                <th class="text-uppercase text-center">Category Name</th>
                 <th class="text-uppercase  text-primary text-center ">control</th>
             </tr>
         </tfoot>
@@ -101,15 +101,15 @@
 
     <?php 
             
-            // }
+            }
         
-        // else 
-        //     {
-        //         echo "<div class=\"alert alert-secondary text-center text-lg alert-dismissible\" role=\"alert\">
-        //              <strong class=\" text-block \">No posts found</strong> 
+        else 
+            {
+                echo "<div class=\"alert alert-secondary text-center text-lg alert-dismissible\" role=\"alert\">
+                     <strong class=\" text-block \">No categories found</strong> 
                      
-        //         </div>";
-        //     }
+                </div>";
+            }
         
     
     ?>
