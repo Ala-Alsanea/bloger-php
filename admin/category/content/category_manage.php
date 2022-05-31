@@ -1,8 +1,9 @@
+
 <section id="wrapper" class="flex-fill">
     <div id="content-wrapper" class="d-flex flex-column justify-content-between ">
 
         <!-- username -->
-        <?php include '../_shared_files/username_echo.php'?>
+        <?php include '../_shared_files/username_echo.php' ?>
 
         <!-- page label  -->
         <div id="content-here" class="container-fluid" style=" margin-bottom: 40px;">
@@ -18,10 +19,10 @@
             <nav class="mb-5  ">
                 <div class="nav nav-pills justify-content-evenly btn-group px-5" id="nav-tab" role="tablist">
                     <button class="nav-link btn btn-lg btn-graduate-primary  text-capitalize border border-primary border-2 active" id="View-posts-tab" data-bs-toggle="tab" data-bs-target="#View-posts" type="button" role="tab" aria-controls="View-posts" aria-selected="true">
-                        View posts</button>
+                        View categories</button>
 
                     <button class="nav-link btn btn-lg btn-graduate-primary text-capitalize border border-primary border-2  " id="add-post-tab" data-bs-toggle="tab" data-bs-target="#add-post" type="button" role="tab" aria-controls="add-post" aria-selected="false">
-                        add post </button>
+                        add categories </button>
                 </div>
             </nav>
             <!-- ##########(tabs)##########-->
@@ -38,11 +39,13 @@
                 </div>
 
             </div>
+
+
+            <div class="">
+                <?php include '../_shared_files/footer.php'; ?>
+            </div>
         </div>
 
-        <div class="">
-            <?php include '../_shared_files/footer.php'; ?>
-        </div>
 
     </div>
 
@@ -57,9 +60,6 @@
     </div>
 
 </section>
-
-
-
 
 
 </div>
