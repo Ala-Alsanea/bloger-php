@@ -17,8 +17,8 @@ if(isset($_POST['post_btn'])){
       $insertQuery= "INSERT INTO `categories`(`category_name`) VALUES ('$cat_name')";
       $result=mysqli_query($conn,$insertQuery);
       if($result==true){
-      //   header('refresh:0');
-        echo'Success';
+        header('refresh:0');
+        // echo'Success';
       }
 else{
       header('Location:../error.php');
