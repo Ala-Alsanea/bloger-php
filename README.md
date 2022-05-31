@@ -13,8 +13,7 @@
 
 		- mai task
 			- [x] login
-
-
+			- [x] logout
 			- [x] category view
 			- [x] category delete
 			- [x] category insert
